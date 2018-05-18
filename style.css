@@ -1449,7 +1449,7 @@ div.call-to-action p{
 .nav-secondary ul li a{
     color: #6DFBF0;
     font-weight: 900;
-    font-size: 7vh;
+    font-size: 60px;
 }
 
 /* Media Queries
@@ -1729,7 +1729,7 @@ div.call-to-action p{
     }
     
     .nav-secondary ul li a{
-        line-height: 8.5vh;
+        line-height: 70px;
     }
 
 }
