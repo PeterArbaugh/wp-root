@@ -943,7 +943,7 @@ img.alignright,
 .wp-custom-logo .title-area {
 	max-width: 350px;
 	padding-bottom: 5px;
-	padding-top: 5px;
+	padding-top: 5vh;
 }
 
 .site-title {
@@ -1547,7 +1547,6 @@ div.call-to-action p{
 
 	.nav-primary {
 		clear: both;
-		width: auto;
         padding-left: 52.5%;
 	}
 
@@ -1716,7 +1715,7 @@ div.call-to-action p{
 
 	.footer-widgets {
 		width: 80vw;
-        margin: auto;
+        margin: 0 auto 60px auto;
 	}
 
 
