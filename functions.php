@@ -4,7 +4,7 @@
  *
  *
  * @package WP Root
- * @author  Peter Arbaugh
+ * @author  NYU WP Team
  * @license GPL-2.0+
  * @link    https://wp.nyu.edu
  */
@@ -30,7 +30,7 @@ add_action( 'wp_enqueue_scripts', 'wproot_enqueue_scripts_styles' );
 function wproot_enqueue_scripts_styles() {
 
 	wp_enqueue_style(
-		'genesis-sample-fonts',
+		'wproot-fonts',
 		'//fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,900',
 		array(),
 		CHILD_THEME_VERSION
@@ -144,6 +144,15 @@ add_theme_support( 'genesis-footer-widgets', 1 );
 // Removes header right widget area.
 unregister_sidebar( 'header-right' );
 
+// TEMPORARY - Add widget area to home page header
+genesis_register_sidebar(
+	array(
+		'id'	=> 'home-header',
+		'name'	=> 'Home page title',
+		'description' => 'This widget area dispays in the title area of the home page and should only be used with the custom HTML widget.'
+		)
+	);
+
 // Force full-width-content layout setting
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
@@ -216,10 +225,21 @@ function wproot_secondary_menu_args( $args ) {
 
 }
 
-//Add excerpts to pages
+// Remove post meta
+remove_action( 'genesis_entry_footer', 'genesis_post_meta');
+
+// Filter post info, show post date only
+add_filter( 'genesis_post_info', 'wproot_post_archive_info');
+
+function wproot_post_archive_info( $post_info ) {
+	$post_info = '[post_date]';
+	return $post_info;
+}
+
+// Add excerpts to pages
 add_post_type_support( 'page', 'excerpt' ); 
 
-//Display excerpt as subtitle for pages and posts
+// Display excerpt as subtitle for pages and posts
 add_action( 'genesis_entry_header', 'wproot_excerpt', 10 ); 
 
 function wproot_excerpt() {
