@@ -17,7 +17,6 @@
 	Text Domain: wproot
 */
 
-
 /* Table of Contents
 - HTML5 Reset
 	- Baseline Normalize
@@ -43,9 +42,7 @@
 - Widgets
 	- Featured Content
 - Plugins
-	- Genesis eNews Extended
 	- Genesis Simple FAQ
-	- Jetpack
 - Skip Links
 - Site Header
 	- Title Area
@@ -60,8 +57,9 @@
 	- Entry Comments
     - Content blocks
 - Sidebar
-- Footer Widgets
-- Site Footer
+- Footer Widget area
+- Call to action
+- Footer menu
 - Media Queries
 	- Min-width: 960px
 		- Site Header
@@ -70,14 +68,14 @@
 		- Header Menu
 		- Site Inner
 		- Content
-		- Sidebar
-		- Author Box
-		- After Entry
+		- Content grid
+		- Content blocks
+		- Image captions
 		- Column Classes
 		- Entry Misc.
 		- Footer Widgets
+		- Footer menu
 - Print Styles
-*/
 
 
 /* HTML5 Reset
@@ -390,7 +388,7 @@ figure {
 	text-align: center;
 }
 
-/* Forms - TODO
+/* Forms
 --------------------------------------------- */
 
 input,
@@ -720,7 +718,10 @@ th:first-child {
 	margin-bottom: 20px;
 }
 
-/* WordPress - many of these styles should be overridden by the column system included below.  We could use these later to make editing simpler by tying our columns to the default alignments, but that is probably dependent on Gutenberg.
+/* WordPress - 
+NOTE: many of these styles should be overridden by the column system included below.  
+We could use these later to make editing simpler by tying our columns to the default alignments, 
+but that is probably dependent on Gutenberg.
 --------------------------------------------- */
 
 .aligncenter {
@@ -1594,7 +1595,7 @@ div.call-to-action p{
     
     /* Content grid
     --------------------------------------------- */
-    .l-c, .r-c, .c-c {
+    .l-c, .r-c, .c-c{
         width: 37.5vw;
     }
 
@@ -1602,7 +1603,7 @@ div.call-to-action p{
         float: left;
     }
 
-    .r-c{
+    .r-c, .r-i{
         float: right;
     }
     .c-c{
@@ -1610,7 +1611,7 @@ div.call-to-action p{
         text-align: center;
     }
     
-    /* blocks
+    /* Content blocks
     --------------------------------------------- */
     .block-tall, .block-short{ 
         width: 37.5vw;
@@ -1721,7 +1722,7 @@ div.call-to-action p{
 
 
     
-    	/* Footer Menu
+    /* Footer Menu
 	--------------------------------------------- */
     
     .nav-secondary{
