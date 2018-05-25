@@ -18,16 +18,20 @@ function wproot_add_archive_body_class( $classes ) {
 	return $classes;
 }
 
-// Output Category title & description
-add_action( 'genesis_before_content', 'wproot_output_category_info' );
+// Remove Genesis default archive title and description
+remove_action( 'genesis_before_loop', 'genesis_do_taxonomy_title_description', 15 );
 
+// Add a custom archive title and description
+add_action( 'genesis_before_content', 'wproot_output_category_info' );
 function wproot_output_category_info() {
 	if ( is_category() || is_tag() || is_tax() ) {
 		echo '<div class="archive-description">' . single_term_title('<h1 class="archive-title">') . '</h1>' . term_description() . '</div>';
 	}
 }
 
-// @Todo: Add a filter that removes the category title from the main content.
+// Move the post info before the post title by changing the priority
+remove_action( 'genesis_entry_header', 'genesis_post_info', 12);
+add_action( 'genesis_entry_header', 'genesis_post_info', 5 );
 
 // Remove author
 // Universal - Moved to functions.php
