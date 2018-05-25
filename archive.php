@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * NYU WP Root.
  *
  *
@@ -18,15 +18,16 @@ function wproot_add_archive_body_class( $classes ) {
 	return $classes;
 }
 
-// Add Category title & description
+// Output Category title & description
 add_action( 'genesis_before_content', 'wproot_output_category_info' );
 
 function wproot_output_category_info() {
 	if ( is_category() || is_tag() || is_tax() ) {
-		echo single_term_title();
-		echo term_description();
+		echo '<div class="archive-description">' . single_term_title('<h1 class="archive-title">') . '</h1>' . term_description() . '</div>';
 	}
 }
+
+// @Todo: Add a filter that removes the category title from the main content.
 
 // Remove author
 // Universal - Moved to functions.php
